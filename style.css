@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+
+}
+.card-container{
+    border-radius: 10px;
+    background-color: darksalmon;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container-options{
+    width: 400px;
+    height: 400px;
+    margin-top: 20px;
+}
+
+#password-container{
+    width: 400px;
+    height: 41px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#password{
+    font-size: large;
+    font-family: sans-serif;
+    text-align: center;
+    border-radius: 5px;
+    height: 2rem;
+    border: none;
+    width: 297px;
+    background-color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-break: break-all;
+}
+
+#password-options{
+
+}
+
+#options-container{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+#options-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.columns-options-container{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 80px;
+}
+
+
+/*/TITLES AND TEXTS/*/
+.main-title{
+    font-family: sans-serif;
+    font-size: 1.5em;
+    color: rgb(255, 255, 255);
+    margin-top: 30px;
+}
+
+.subtitles-lists{
+    font-family: sans-serif;
+    font-size: 1.2em;
+    color: rgb(255, 255, 255);
+    margin-bottom: 2px; 
+ 
+}
+
+.text-options{
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 0.8em;
+    color: #6f6081; 
+
+}
+
+
+/*/BUTTONS/*/
+
+.button-actions{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    color: whitesmoke;
+    background-color: #6f6081;
+    padding: 5px;
+    box-shadow: none;
+    border: none;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    grid-column: span;
+    cursor: pointer;
+}
+
+.button-actions:hover{
+    background-color: #b99ddb;
+}
+
