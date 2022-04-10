@@ -21,8 +21,8 @@ const generatorButton = document.getElementById('generator-button');
 const copyButton = document.getElementById('copy-button');
 
 //INPUT PASSWORD
-const inputPassword = document.getElementById('input-password');
-const password = document.getElementById('input-password').value;
+const passwordText = document.getElementById('password-text');
+
 
 //FUNCTIONS********************
 const characters = '0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -37,9 +37,14 @@ const genPassword = (length) => {
     return password;
 }
 
-console.log(genPassword(12));
-console.log(genPassword(9));
-console.log(genPassword(6));
+console.log(genPassword(11));
+console.log(genPassword(8));
+console.log(genPassword(5));
+
+
+
+
+
 
 
 

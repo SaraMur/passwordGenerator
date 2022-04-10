@@ -12,7 +12,7 @@
     <div class="container">
         <!-- PASSWORD GENERADO -->
         <section class="card-container" id="password-container">
-            <h3 id="password">Contraseña</h3>
+            <h3 id="password-text">Contraseña</h3>
         </section>
 
         <section class="card-container" id="container-options">
@@ -20,63 +20,56 @@
             <article id="password-options">
                 <h1 class="main-title">Personalice su contraseña</h1>
                 <br>
-                
-                <div id="options-container">
-                    <!-- LONGITUD -->
-                    <div class="columns-options-container">
+                <!-- PANEL DE OPCIONES -->
+                <div class="columns-options-container">
+                    <form action="">
+                        
+                        <!-- LONGITUD -->
                         <h2 class="subtitles-lists">Longitud</h2>
-                        <form action="">
-                            
-                            <input type="radio" name="longitud" id="longitud-12-caracteres" value="checked">
-                            <label for="longitud-12-caracteres" class="text-options">12 caracteres</label>
-                            <br>
-                            <input type="radio" name="longitud" id="longitud-9-caracteres">
-                            <label for="" class="text-options">9 caracteres</label>
-                            <br>
-                            <input type="radio" name="longitud" id="longitud-6-caracteres">
-                            <label for="" class="text-options">6 caracteres</label>
 
-                        </form>
+                        <input type="radio" name="longitud" id="longitud-12-caracteres" value="checked">
+                        <label for="longitud-12-caracteres" class="text-options">12 caracteres</label>
+                        <br>
+                        <input type="radio" name="longitud" id="longitud-9-caracteres">
+                        <label for="" class="text-options">9 caracteres</label>
+                        <br>
+                        <input type="radio" name="longitud" id="longitud-6-caracteres">
+                        <label for="" class="text-options">6 caracteres</label>
 
-                    </div>
-
-                    <!-- REGLAS -->
-                    <div class="columns-options-container">
+                        
+                        <!-- REGLAS -->
                         <h2 class="subtitles-lists">Reglas</h2>
-                        <form action="">
-                            <input type="radio" name="reglas" id="reglas-solo-letras" value="checked">
-                            <label for="reglas-solo-letras" class="text-options">Solo letras</label>
-                            <br>
-                            <input type="radio" name="reglas" id="reglas-lectura-simple">
-                            <label for="" class="text-options">Lectura simple</label>
-                            <br>
-                            <input type="radio" name="reglas" id="reglas-todos-caracteres">
-                            <label for="" class="text-options">Todos los caracteres</label>
 
-                        </form>
+                        <input type="radio" name="reglas" id="reglas-solo-letras" value="checked">
+                        <label for="reglas-solo-letras" class="text-options">Solo letras</label>
+                        <br>
+                        <input type="radio" name="reglas" id="reglas-lectura-simple">
+                        <label for="" class="text-options">Lectura simple</label>
+                        <br>
+                        <input type="radio" name="reglas" id="reglas-todos-caracteres">
+                        <label for="" class="text-options">Todos los caracteres</label>
 
-                    </div>
-
-                    <!-- CARACTERES -->
-                    <div class="columns-options-container">
+                        
+                        <!-- CARACTERES -->
                         <h2 class="subtitles-lists">Caracteres</h2>
-                        <form action="">
-                            <input type="checkbox" name="caracteres" id="caracteres-mayusculas" value="checked">
-                            <label for="caracteres-mayusculas" class="text-options">Mayúsculas</label>
-                            <br>
-                            <input type="checkbox" name="caracteres" id="caracteres-minusculas">
-                            <label for="caracteres-minusculas" class="text-options">Minúsculas</label>
-                            <br>
-                            <input type="checkbox" name="caracteres" id="caracteres-numeros">
-                            <label for="caracteres-numeros" class="text-options">Números</label>
-                            <br>
-                            <input type="checkbox" name="caracteres" id="caracteres-simbolos">
-                            <label for="caracteres-simbolos" class="text-options">Símbolos</label>
 
-                        </form>
+                        <input type="checkbox" name="caracteres" id="caracteres-mayusculas" value="checked">
+                        <label for="caracteres-mayusculas" class="text-options">Mayúsculas</label>
+                        <br>
+                        <input type="checkbox" name="caracteres" id="caracteres-minusculas">
+                        <label for="caracteres-minusculas" class="text-options">Minúsculas</label>
+                        <br>
+                        <input type="checkbox" name="caracteres" id="caracteres-numeros">
+                        <label for="caracteres-numeros" class="text-options">Números</label>
+                        <br>
+                        <input type="checkbox" name="caracteres" id="caracteres-simbolos">
+                        <label for="caracteres-simbolos" class="text-options">Símbolos</label>
+                    
+                    </form>
 
-                    </div>
                 </div>
+
+                <!-- BOTONES -->
                 <button class="button-actions" id="generator-button" onclick="genPasword()">Generate</button>
                 <!-- <button class="button-actions" id="copy-button">Copy</button> -->
             </article>
