@@ -36,34 +36,6 @@ const passwordForm = document.getElementById('password-form');
 
 
 
-//OPTIONS
-// const longitud12Valor = longitud12Caracteres.checked;
-// const longitud9Valor = longitud9Caracteres.checked;
-// const longitud6Valor = longitud6Caracteres.checked;
-    
-// const reglasSoloLetrasValor = reglasSoloLetras.checked;
-// const reglasLecturaSimpleValor = reglasLecturaSimple.checked;
-// const reglasTodosCaracteresValor = reglasTodosCaracteres.checked;
-
-// const caracteresMayusculasValor = caracteresMayusculas.checked;
-// const caracteresMinusculasValor = caracteresMinusculas.checked;
-// const caracteresSimbolosValor = caracteresSimbolos.checked;
-
-
-
-
-//funciones auxiliares
-//LONGITUD AUXILIARES
-
-
-//REGLAS AUXILIARES
-
-
-//CARACTERES AUXILIARES
-// const charactersChosen = () =>{
-
-// }
-
 
 
 const seleccionUsuario = document.getElementsByTagName('input');
@@ -72,25 +44,16 @@ const loQueVaUsuario = (seleccionUsuario) =>{
     return seleccionUsuario.value === checked;
 }
 //¿Porque no recibe los datos de los inputs?
-//¿Como utilizo los datos recibidos de los inputs?
-
-
-
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-//esta la llenaria con los datos obtenidos de reglas y de caracteres
-
-
-
-
-let characters = '';
 
 
 
 //FUNCTIONS********************
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //esta funcion funciona con la longitud en el parametro y con un array "characters" conformado por lo que el usuario eligió en la seccion de reglas y en la seccion de caracteres. 
-const genPassword = (length) => {
+
+let characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+const genPassword = (characters, length) => {
   
 
     let charactersLength = characters.length;
@@ -99,11 +62,24 @@ const genPassword = (length) => {
         password += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return password;
-}
+};
 
-console.log(genPassword(11));
-console.log(genPassword(8));
-console.log(genPassword(5));
+const generateMixDatos = () => {
+
+  
+    let length = parseInt(inputLength.value);
+
+    const symbols = ".:,;-+*/¡!<>¿?=()&%$#@°"
+    const numbers = "0123456789";
+
+    if (caracteresNumeros.checked) characters += numbers;
+    if (caracteresSimbolos.checked) characters += symbols;
+
+    genPassword.innerText /*donde esta innerText?*/ = genPassword (characters, length);
+
+};
+
+
 
 
 
@@ -111,9 +87,7 @@ passwordForm.addEventListener('submit', e =>{
     e.preventDefault()
 
     
-
-
-    // const passwordCreated = genPassword2(longitud12Valor, longitud9Valor, longitud6Valor, reglasSoloLetrasValor, reglasLecturaSimpleValor, reglasTodosCaracteresValor, caracteresMayusculasValor, caracteresMinusculasValor, caracteresSimbolosValor) 
+    const genPassword = (characters, length);
 
     
 });    
@@ -137,7 +111,7 @@ passwordForm.addEventListener('submit', e =>{
 //}
 
 
-generatorButton.addEventListener('click', genPassword())
+//generatorButton.addEventListener('click', genPassword())
 
 
 //genPassword()
