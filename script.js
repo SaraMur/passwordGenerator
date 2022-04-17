@@ -1,129 +1,122 @@
-//HTML ELEMENTS
-//INPUTS DE LONGITUD
-const longitud12Caracteres = document.getElementById('longitud-12-caracteres');
-const longitud9Caracteres = document.getElementById('longitud-9-caracteres');
-const longitud6Caracteres = document.getElementById('longitud-6-caracteres');
-
-
-
-//INPUTS DE REGLAS
-const reglasSoloLetras = document.getElementById('reglas-solo-letras');
-const reglasLecturaSimple = document.getElementById('reglas-lectura-simple');
-const reglasTodosCaracteres = document.getElementById('reglas-todos-caracteres');
-
-
-
-
-
-//INPUTS DE CARACTERES
-const caracteresMayusculas = document.getElementById('caracteres-mayusculas');
-const caracteresMinusculas = document.getElementById('caracteres-minusculas');
-const caracteresNumeros = document.getElementById('caracteres-numeros');
-const caracteresSimbolos = document.getElementById('caracteres-simbolos');
-
-
-
-
-//BUTTONS
-const generatorButton = document.getElementById('generator-button');
-//const copyButton = document.getElementById('copy-button');
-
-//INPUT PASSWORD
-const passwordText = document.getElementById('password-text');
+//PASSWORD TEXT
+const passwordText = document.getElementById("password-text");
 
 //INPUT FORM
-const passwordForm = document.getElementById('password-form');
+const passwordForm = document.getElementById("password-form");
 
-
-
-//OPTIONS
-const longitud12Valor = longitud12Caracteres.checked;
-const longitud9Valor = longitud9Caracteres.checked;
-const longitud6Valor = longitud6Caracteres.checked;
-    
-const reglasSoloLetrasValor = reglasSoloLetras.checked;
-const reglasLecturaSimpleValor = reglasLecturaSimple.checked;
-const reglasTodosCaracteresValor = reglasTodosCaracteres.checked;
-
-const caracteresMayusculasValor = caracteresMayusculas.checked;
-const caracteresMinusculasValor = caracteresMinusculas.checked;
-const caracteresSimbolosValor = caracteresSimbolos.checked;
-
-
-const characters = '123456789abcdefghijkmnpqrstuvwxyz!@#$%^&*()ABCDEFGHJKLMNOPQRSTUVWXYZ';
-
+//const seleccionUsuario = document.getElementsByTagName('input');
 
 //FUNCTIONS********************
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//esta funcion funciona con la longitud en el parametro y con un array "characters" conformado por lo que el usuario eligió en la seccion de reglas y en la seccion de caracteres.
 
-const genPassword = (length) => {
-    let charactersLength = characters.length;
-    let password = '';
-    for (let i = 0; i <= length; i++) {
-        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+const longitud12Caracteres = document.getElementById("longitud-12-caracteres");
+const longitud9Caracteres = document.getElementById("longitud-9-caracteres");
+const longitud6Caracteres = document.getElementById("longitud-6-caracteres");
+
+const caracteresMayusculas = document.getElementById("caracteres-mayusculas");
+const caracteresMinusculas = document.getElementById("caracteres-minusculas");
+const caracteresNumeros = document.getElementById("caracteres-numeros");
+const caracteresSimbolos = document.getElementById("caracteres-simbolos");
+const generatorButton = document.getElementById("generator-button");
+const passwordGenerated = document.getElementById("password-generated");
+
+//const reglas = document.querySelector('input[name="reglas"]:checked').value;
+
+const genPassword = (letters, length) => {
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    let random = Math.floor(Math.random() * letters.length);
+    password += letters.charAt(random);
+  }
+  return password;
+};
+
+const checkRules = (radReglas, checkbox, rule, a, b) => {
+  if (checkbox.checked) {
+    if (radReglas !== "simple") {
+      return rule;
+    } else {
+      retorno = Array.from(rule).filter((x) => x !== a && x !== b).join("");
+      return retorno;
     }
-    return password;
-}
+  }
+};
 
-console.log(genPassword(11));
-console.log(genPassword(8));
-console.log(genPassword(5));
+const generateMixDatos = () => {
+  let characters = "";
+  const lowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz";
+  const upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const symbols = ".:,;-+*/¡!<>¿?=()&%$#@°";
+  const numbers = "0123456789";
 
+  const longitud = document.querySelector(
+    'input[name="longitud"]:checked'
+  ).value;
 
-const genPassword2 = (longitud12Valor, longitud9Valor, longitud6Valor, reglasSoloLetrasValor, reglasLecturaSimpleValor, reglasTodosCaracteresValor, caracteresMayusculasValor, caracteresMinusculasValor, caracteresSimbolosValor) => {
+  const radReglas = document.querySelector('input[name="reglas"]:checked').value;
 
-    characters
+  characters += checkRules(radReglas, caracteresMayusculas, upperCaseCharacters, "O", "I");
+  characters += checkRules(radReglas, caracteresMinusculas, lowerCaseCharacters, "o", "l");
+  characters += checkRules(radReglas, caracteresNumeros, numbers, "0", "1");
 
-
-}
-
-
-passwordForm.addEventListener('submit', e =>{
-    e.preventDefault()
-
-    
-
-
-    const passwordCreated = genPassword2(longitud12Valor, longitud9Valor, longitud6Valor, reglasSoloLetrasValor, reglasLecturaSimpleValor, reglasTodosCaracteresValor, caracteresMayusculasValor, caracteresMinusculasValor, caracteresSimbolosValor) 
-
-    
-});    
-
-
-
-
-
-
-//LONGITUD
-/*const longitud12Caracteres{
-if (longitud12Caracteres.value === checked){
-    return create array. length [11]
+  /*
+  if (caracteresMayusculas.checked) {
+    if (reglas !== "simple") {
+      characters += upperCaseCharacters;
+    } else {
+      characters += Array.from(upperCaseCharacters).filter((x) => x !== "O" || x !== "I").join("");
     }
+  }
+  if (caracteresMinusculas.checked) {
+    if (reglas !== "simple") {
+      characters += lowerCaseCharacters;
+    } else {
+      characters += Array.from(lowerCaseCharacters).filter((x) => x !== "o" || x !== "l").join("");
+    }
+  }
+  if (caracteresNumeros.checked) {
+    if (reglas !== "simple") {
+      characters += numbers;
+    } else {
+      characters += Array.from(numbers).filter((x) => x !== "0" || x !== "1").join("");
+    }
+  }*/
+
+  if (caracteresSimbolos.checked) characters += symbols;
+
+  passwordGenerated.innerText = genPassword(characters, longitud);
+};
+
+function ShowHideDiv(selected) {
+  if (selected === "letras") {
+    caracteresNumeros.checked = false;
+    caracteresSimbolos.checked = false;
+    caracteresNumeros.disabled = true;
+    caracteresSimbolos.disabled = true;
+  }
+
+  if (selected === "simple") {
+    caracteresNumeros.checked = true;
+    caracteresMayusculas.checked = true;
+    caracteresMinusculas.checked = true;
+    caracteresSimbolos.checked = false;
+    caracteresSimbolos.disabled = true;
+  }
+
+  if (selected === "todos") {
+    caracteresNumeros.checked = true;
+    caracteresSimbolos.checked = true;
+    caracteresMayusculas.checked = true;
+    caracteresMinusculas.checked = true;
+    caracteresNumeros.disabled = false;
+    caracteresSimbolos.disabled = false;
+  }
+
+  generateMixDatos();
 }
-*/
 
-//REGLAS
+generatorButton.addEventListener("click", () => {
+  generateMixDatos();
+});
 
-
-
-//CARACTERES
-
-
-//BOTONES
-/*const copyPassword = () => {
-    let copyText = document.getElementById("password");
-    copyText.select();
-    copyText.setSelectionRange(0, 999);
-    document.execCommand("copy");
-}
-
-*/
-
-//const buttonGeneratePassword = () =>{
-    
-//}
-
-
-generatorButton.addEventListener('click', genPassword())
-
-
-//genPassword()

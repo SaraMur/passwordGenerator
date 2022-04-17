@@ -1,83 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Password Generator</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="container">
-        <!-- PASSWORD GENERADO -->
-        <section class="card-container" id="password-container">
-            <h3 id="password-text">Contraseña</h3>
-        </section>
+      <!-- PASSWORD GENERADO -->
+      <section class="card-container" id="password-container">
+        <span id="password-generated">
+          <h3 id="password-text">Contraseña</h3>
+        </span>
+      </section>
 
-        <section class="card-container" id="container-options">
-            <!-- PERSONALICE SU CONTRASEÑA -->
-            <article id="password-options">
-                <h1 class="main-title">Personalice su contraseña</h1>
-                <br>
-                <!-- PANEL DE OPCIONES -->
-                <div class="columns-options-container">
-                    <form id="password-form">
-                        
-                        <!-- LONGITUD -->
-                        <h2 class="subtitles-lists">Longitud</h2>
+      <section class="card-container" id="container-options">
+        <!-- PERSONALICE SU CONTRASEÑA -->
+        <article id="password-options">
+          <h1 class="main-title">Personalice su contraseña</h1>
+          <br />
+          <!-- PANEL DE OPCIONES -->
+          <div class="columns-options-container">
+            <form id="password-form">
+              <!-- LONGITUD -->
+              <h2 class="subtitles-lists">Longitud</h2>
 
-                        <input type="radio" name="longitud" id="longitud-12-caracteres" value="checked">
-                        <label for="longitud-12-caracteres" class="text-options">12 caracteres</label>
-                        <br>
-                        <input type="radio" name="longitud" id="longitud-9-caracteres">
-                        <label for="" class="text-options">9 caracteres</label>
-                        <br>
-                        <input type="radio" name="longitud" id="longitud-6-caracteres">
-                        <label for="" class="text-options">6 caracteres</label>
+              <input type="radio" name="longitud" value="12" />
+              <label for="longitud-12-caracteres" class="text-options"
+                >12 caracteres</label
+              >
+              <br />
+              <input type="radio" checked name="longitud" value="9" />
+              <label for="" class="text-options">9 caracteres</label>
+              <br />
+              <input type="radio" name="longitud" value="6" />
+              <label for="" class="text-options">6 caracteres</label>
 
-                        
-                        <!-- REGLAS -->
-                        <h2 class="subtitles-lists">Reglas</h2>
+              <!-- REGLAS -->
+              <h2 class="subtitles-lists">Reglas</h2>
 
-                        <input type="radio" name="reglas" id="reglas-solo-letras" value="checked">
-                        <label for="reglas-solo-letras" class="text-options">Solo letras</label>
-                        <br>
-                        <input type="radio" name="reglas" id="reglas-lectura-simple">
-                        <label for="" class="text-options">Lectura simple</label>
-                        <br>
-                        <input type="radio" name="reglas" id="reglas-todos-caracteres">
-                        <label for="" class="text-options">Todos los caracteres</label>
+              <input
+                type="radio"
+                name="reglas"
+                id="reglas-solo-letras"
+                value="letras"
+                onclick="ShowHideDiv('letras')"
+              />
+              <label for="reglas-solo-letras" class="text-options"
+                >Solo letras</label
+              >
+              <br />
+              <input
+                type="radio"
+                name="reglas"
+                id="reglas-lectura-simple"
+                value="simple"
+                onclick="ShowHideDiv('simple')"
+              />
+              <label for="" class="text-options">Lectura simple</label>
+              <br />
+              <input
+                type="radio"
+                name="reglas"
+                id="reglas-todos-caracteres"
+                value="todos"
+                checked
+                onclick="ShowHideDiv('todos')"
+              />
+              <label for="" class="text-options">Todos los caracteres</label>
 
-                        
-                        <!-- CARACTERES -->
-                        <h2 class="subtitles-lists">Caracteres</h2>
+              <!-- CARACTERES -->
+              <h2 class="subtitles-lists">Caracteres</h2>
 
-                        <input type="checkbox" name="caracteres" id="caracteres-mayusculas" value="checked">
-                        <label for="caracteres-mayusculas" class="text-options">Mayúsculas</label>
-                        <br>
-                        <input type="checkbox" name="caracteres" id="caracteres-minusculas">
-                        <label for="caracteres-minusculas" class="text-options">Minúsculas</label>
-                        <br>
-                        <input type="checkbox" name="caracteres" id="caracteres-numeros">
-                        <label for="caracteres-numeros" class="text-options">Números</label>
-                        <br>
-                        <input type="checkbox" name="caracteres" id="caracteres-simbolos">
-                        <label for="caracteres-simbolos" class="text-options">Símbolos</label>
-                    
-                    </form>
+              <input
+                type="checkbox"
+                name="caracteres"
+                id="caracteres-mayusculas"
+                value=""
+                checked
+              />
+              <label for="caracteres-mayusculas" class="text-options"
+                >Mayúsculas</label
+              >
+              <br />
+              <input
+                type="checkbox"
+                name="caracteres"
+                id="caracteres-minusculas"
+                value=""
+                checked
+              />
+              <label for="caracteres-minusculas" class="text-options"
+                >Minúsculas</label
+              >
+              <br />
+              <input
+                type="checkbox"
+                name="caracteres"
+                id="caracteres-numeros"
+                value=""
+                checked
+              />
+              <label for="caracteres-numeros" class="text-options"
+                >Números</label
+              >
+              <br />
+              <input
+                type="checkbox"
+                name="caracteres"
+                id="caracteres-simbolos"
+                value=""
+                checked
+              />
+              <label for="caracteres-simbolos" class="text-options"
+                >Símbolos</label
+              >
+            </form>
+          </div>
 
-                </div>
-
-                <!-- BOTONES -->
-                <button class="button-actions" id="generator-button" onclick="genPasword()">Generate</button>
-                <!-- <button class="button-actions" id="copy-button">Copy</button> -->
-            </article>
-        </section>
+          <!-- BOTONES -->
+          <button
+            class="button-actions"
+            id="generator-button"
+            onclick="generateMixDatos()"
+          >
+            Generate
+          </button>
+          <!-- <button class="button-actions" id="copy-button">Copy</button> -->
+        </article>
+      </section>
     </div>
 
-
-
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
