@@ -15,17 +15,16 @@
     </p>
      <h2> Tecnologia:</h2>
     <ul>
-        <li> Html</li>
-        <li> javascript</li>
-        <li>CSS</li>
+        <li> Html </li>
+        <li> Javascript </li>
+        <li> CSS </li>
     </ul>
     <h2>Ilustracciones:</h2>
     <img src="imagen/contraseña.png" alt="">
     <h2>Enlace de la pagina</h2>
-    <a href=" https://saramur.github.io/passwordGenerator/ ">https://saramur.github.io/passwordGenerator </a>
+    <a href="https://saramur.github.io/passwordGenerator/"> https://saramur.github.io/passwordGenerator </a>
      <br>
-    <h3>creado por Ramirez Danila,Muriega Sara,Fiamma Coronel.</h3>
-
+    <h3>Creado con ❤ por Ramirez Danila, Muriega Sara, Coronel Fiamma.</h3>
 
 
 </body>
